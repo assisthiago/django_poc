@@ -9,7 +9,7 @@ from .models import Patient
 def send_whatsapp_message(modeladmin, request, queryset):
     client = Client()
     client.messages.create(
-        body='Olá, aqui é o oftalmo.',
+        body=f'Olá, {queryset[0].name}!',
         from_='whatsapp:+14155238886',
         to=f'whatsapp:+55{queryset[0].phone_number}'
     )
